@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EsnafAjan — KOBİnizin Sosyal Medya Ajansı</title>
+<meta name="description" content="5 dakika ile 30 dakika arasında kobinizin reels'i hazır. Yapay zeka destekli içerik üretimi." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:   #1a7f5a; --green-d: #0d5c3a; --green-l: #e8f5ee;
+  --blue:    #1a4fff; --blue-l:  #e8eeff;
+  --gold:    #c9980a; --gold-l:  #fdf4dc;
+  --ink:     #0e1c14; --ink-2:   #3a4a40; --ink-3: #7a8a80;
+  --white:   #fafdf9; --card-bg: #ffffff; --border: #dce8e0;
+  --r: 14px; --r-sm: 8px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 64px;
+  background: rgba(250,253,249,0.88); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-box { width: 36px; height: 36px; background: var(--green); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 19px; color: var(--green-d); }
+.nav-logo-text span { color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--ink-2); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--green); }
+.nav-cta { background: var(--green); color: #fff; border: none; border-radius: var(--r-sm); padding: 9px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .15s; }
+.nav-cta:hover { background: var(--green-d); }
+
+.hero { position: relative; padding: 5rem 2rem 4rem; text-align: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 70% 50% at 50% -10%, #c8f0dc 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 90% 80%, #dce8ff 0%, transparent 60%); }
+.hero-badge { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 6px; background: var(--green-l); border: 1px solid #a8dcc0; border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: var(--green-d); margin-bottom: 1.5rem; animation: fadeUp .6s ease both; }
+.hero-badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+.hero h1 { position: relative; z-index: 1; font-family: 'Syne', sans-serif; font-size: clamp(2.2rem,5vw,3.8rem); font-weight: 800; line-height: 1.15; color: var(--ink); max-width: 720px; margin: 0 auto 1.25rem; animation: fadeUp .7s .1s ease both; }
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero > p { position: relative; z-index: 1; font-size: clamp(1rem,2vw,1.15rem); color: var(--ink-2); max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; animation: fadeUp .7s .2s ease both; }
+.hero-btns { position: relative; z-index: 1; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; animation: fadeUp .7s .3s ease both; }
+.btn-primary { background: var(--green); color: #fff; border: none; border-radius: var(--r-sm); padding: 14px 30px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .15s, transform .1s; }
+.btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+.btn-secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--border); border-radius: var(--r-sm); padding: 14px 30px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit; transition: border-color .15s, transform .1s; }
+.btn-secondary:hover { border-color: var(--green); transform: translateY(-1px); }
+.hero-stats { position: relative; z-index: 1; display: flex; justify-content: center; gap: 3rem; margin-top: 3.5rem; animation: fadeUp .7s .4s ease both; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--green-d); }
+.stat-label { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+.section { padding: 5rem 2rem; max-width: 1060px; margin: 0 auto; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--green); margin-bottom: .6rem; }
+.section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: .75rem; color: var(--ink); }
+.section-sub { font-size: 15px; color: var(--ink-3); max-width: 500px; line-height: 1.7; margin-bottom: 3rem; }
+
+.how { background: var(--ink); padding: 5rem 2rem; }
+.how-inner { max-width: 1060px; margin: 0 auto; }
+.how .section-tag { color: #6ee6a8; }
+.how .section-title { color: #fff; margin-bottom: .75rem; }
+.how .section-sub { color: #8a9a90; }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5px; background: #2a3a30; border: 1.5px solid #2a3a30; border-radius: var(--r); overflow: hidden; }
+.step-card { background: #131e17; padding: 2rem 1.75rem; position: relative; }
+.step-num { font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800; color: #2a3a30; line-height: 1; margin-bottom: .75rem; }
+.step-icon { font-size: 1.75rem; margin-bottom: .75rem; }
+.step-card h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: .5rem; }
+.step-card p { font-size: 13.5px; color: #7a8a80; line-height: 1.6; }
+.step-arrow { position: absolute; top: 50%; right: -12px; transform: translateY(-50%); width: 24px; height: 24px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; z-index: 2; }
+
+.plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
+.plan-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: var(--r); padding: 2rem; position: relative; transition: transform .2s, box-shadow .2s; }
+.plan-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(26,127,90,.1); }
+.plan-card.featured { border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,127,90,.1); }
+.plan-card.gold { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,152,10,.1); }
+.plan-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 1.25rem; }
+.badge-free { background: var(--green-l); color: var(--green-d); }
+.badge-prem { background: var(--blue-l);  color: var(--blue); }
+.badge-gold { background: var(--gold-l);  color: var(--gold); }
+.plan-price { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: .25rem; }
+.plan-price span { font-size: 1rem; font-weight: 400; color: var(--ink-3); }
+.plan-desc { font-size: 13px; color: var(--ink-3); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.75rem; }
+.plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+.feat-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.feat-soon { font-size: 10px; font-weight: 600; background: #fff8e1; color: var(--gold); padding: 2px 7px; border-radius: 999px; margin-left: auto; white-space: nowrap; }
+.plan-btn { width: 100%; border: none; border-radius: var(--r-sm); padding: 13px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity .15s, transform .1s; }
+.plan-btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn-free { background: var(--green-l); color: var(--green-d); }
+.btn-prem { background: var(--blue);    color: #fff; }
+.btn-gold { background: var(--gold);    color: #fff; }
+.popular-tag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .5px; padding: 4px 14px; border-radius: 999px; white-space: nowrap; }
+
+.features-bg { background: #f4faf7; }
+.feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.feat-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
+.feat-card-icon { width: 44px; height: 44px; background: var(--green-l); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 1rem; }
+.feat-card h3 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: .4rem; color: var(--ink); }
+.feat-card p { font-size: 13.5px; color: var(--ink-3); line-height: 1.6; }
+
+.cta-banner { background: linear-gradient(135deg, var(--green-d) 0%, #0a3d5c 100%); border-radius: var(--r); padding: 3.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.cta-banner h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800; color: #fff; margin-bottom: .75rem; }
+.cta-banner p { font-size: 15px; color: rgba(255,255,255,.7); margin-bottom: 2rem; }
+
+footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; max-width: 1060px; margin: 0 auto; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--ink-3); text-decoration: none; }
+.footer-links a:hover { color: var(--green); }
+.footer-copy { font-size: 13px; color: var(--ink-3); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1rem; } .nav-links { display: none; }
+  .hero { padding: 3.5rem 1rem 3rem; } .hero-stats { gap: 1.5rem; }
+  .section { padding: 3.5rem 1rem; } .step-arrow { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-box">📢</div>
+    <span class="nav-logo-text">Esnaf<span>Ajan</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#nasil-calisir">Nasıl Çalışır</a>
+    <a href="#planlar">Planlar</a>
+    <a href="#ozellikler">Özellikler</a>
+    <a href="/sozlesme">Sözleşme</a>
+  </div>
+  <button class="nav-cta" onclick="window.location.href='/giris'">Giriş Yap / Üye Ol</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    Yapay Zeka Destekli İçerik Üretimi
+  </div>
+  <h1>5 dk ile 30 dk arasında<br><em>KOBİnizin Reels'i Hazır</em></h1>
+  <p>Fotoğraflarınızı yükleyin, planınızı seçin. Yapay zeka sizin için profesyonel reels, ses ve post metni üretsin.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="window.location.href='/uye-ol'">Ücretsiz Başla</button>
+    <button class="btn-secondary" onclick="document.getElementById('nasil-calisir').scrollIntoView({behavior:'smooth'})">Nasıl Çalışır? ↓</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5 dk</div><div class="stat-label">En hızlı teslim</div></div>
+    <div class="stat"><div class="stat-num">9:16</div><div class="stat-label">Instagram & TikTok formatı</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Plan seçeneği</div></div>
+  </div>
+</section>
+
+<section class="how" id="nasil-calisir">
+  <div class="how-inner">
+    <p class="section-tag">Nasıl Çalışır</p>
+    <h2 class="section-title" style="color:#fff">3 adımda profesyonel içerik</h2>
+    <p class="section-sub">Video editörü, sosyal medya uzmanı veya ajans gerekmez.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">📷</div>
+        <h3>Fotoğraf Yükle</h3>
+        <p>2–5 ürün veya mekan fotoğrafı yeterli. Telefon çekimi bile olsa AI profesyonelleştirir.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">🎵</div>
+        <h3>Plan & Müzik Seç</h3>
+        <p>Planınıza uygun içerik seçeneklerini belirleyin. Müzik kütüphanemizden trend sesleri seçin.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">🚀</div>
+        <h3>İçerik Hazır</h3>
+        <p>Reels videonuz, ses dosyanız ve post metniniz 5–30 dakika içinde hesabınıza düşer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planlar">
+  <p class="section-tag">Planlar</p>
+  <h2 class="section-title">İşletmenize uygun planı seçin</h2>
+  <p class="section-sub">Ücretsiz planla hemen başlayın, büyüdükçe yükseltin.</p>
+  <div class="plans-grid">
+
+    <div class="plan-card">
+      <span class="plan-badge badge-free">🌱 Ücretsiz</span>
+      <div class="plan-price">0 ₺ <span>/ ay</span></div>
+      <div class="plan-desc">Kayıt olunca anında aktif. Kart gerekmez.</div>
+      <ul class="plan-features">
+        <li><span class="feat-icon">✨</span>5 adet AI fotoğraf profesyonelleştirme</li>
+        <li><span class="feat-icon">🎙️</span>1 adet anlatıcı ses dosyası (15–20 sn)</li>
+        <li><span class="feat-icon">✍️</span>Sınırsız post metni üretimi</li>
+        <li><span class="feat-icon">📱</span>Instagram & TikTok formatı</li>
+      </ul>
+      <button class="plan-btn btn-free" onclick="window.location.href='/uye-ol'">Ücretsiz Başla</button>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="popular-tag">⭐ En Popüler</div>
+      <span class="plan-badge badge-prem">💎 Premium</span>
+      <div class="plan-price">699 ₺ <span>/ ay</span></div>
+      <div class="plan-desc">Küçük işletmeler için ideal. İstediğin zaman iptal et.</div>
+      <ul class="plan-features">
+        <li><span class="feat-icon">✍️</span>Sınırsız post metni üretimi</li>
+        <li><span class="feat-icon">🎬</span>2 adet 15 saniyelik Reels video</li>
+        <li><span class="feat-icon">🎙️</span>2 adet anlatıcı ses dosyası</li>
+        <li><span class="feat-icon">✨</span>5 adet AI fotoğraf profesyonelleştirme</li>
+        <li><span class="feat-icon">📊</span>Performans önerileri <span class="feat-soon">Yakında</span></li>
+      </ul>
+      <button class="plan-btn btn-prem" onclick="window.location.href='/uye-ol?plan=premium'">Premium'a Geç</button>
+    </div>
+
+    <div class="plan-card gold">
+      <span class="plan-badge badge-gold">🏆 Gold</span>
+      <div class="plan-price">1.399 ₺ <span>/ ay</span></div>
+      <div class="plan-desc">Büyüyen işletmeler ve zincir mağazalar için.</div>
+      <ul class="plan-features">
+        <li><span class="feat-icon">✍️</span>Sınırsız post metni üretimi</li>
+        <li><span class="feat-icon">🎬</span>4 adet haftalık 15 saniyelik Reels video</li>
+        <li><span class="feat-icon">🎵</span>2 adet işletmenize özel müzik üretimi</li>
+        <li><span class="feat-icon">✨</span>10 adet AI fotoğraf profesyonelleştirme</li>
+        <li><span class="feat-icon">🎙️</span>3 adet anlatıcı ses dosyası</li>
+        <li><span class="feat-icon">📲</span>Meta otomatik paylaşım <span class="feat-soon">Yakında</span></li>
+      </ul>
+      <button class="plan-btn btn-gold" onclick="window.location.href='/uye-ol?plan=gold'">Gold'a Geç</button>
+    </div>
+
+  </div>
+
+  <div style="margin-top:2rem;background:var(--green-l);border:1px solid #a8dcc0;border-radius:var(--r-sm);padding:1rem 1.5rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+    <span style="font-size:20px">💡</span>
+    <div style="flex:1">
+      <strong style="font-size:14px;color:var(--green-d)">Tek seferlik sipariş de verebilirsiniz</strong>
+      <p style="font-size:13px;color:var(--ink-3);margin-top:2px">15 saniyelik reel 499 ₺ · 30 saniyelik reel 799 ₺ · Abonelik gerekmez</p>
+    </div>
+    <button class="plan-btn btn-free" style="width:auto;white-space:nowrap;padding:9px 18px;font-size:13px" onclick="window.location.href='/siparis'">Sipariş Ver →</button>
+  </div>
+</section>
+
+<div class="features-bg">
+  <section class="section" id="ozellikler">
+    <p class="section-tag">Özellikler</p>
+    <h2 class="section-title">Her şey dahil</h2>
+    <p class="section-sub">Bir sosyal medya ajansından bekleyeceğiniz her şey, yapay zekanın hızıyla.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-card-icon">🎬</div>
+        <h3>Seedance 2.0 Video</h3>
+        <p>Dünyanın en gelişmiş AI video modeliyle 9:16 formatında sinematik reels üretimi.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon">✨</div>
+        <h3>Fotoğraf Profesyonelleştirme</h3>
+        <p>Telefon çekimlerinizi stüdyo kalitesine yükselten AI image enhancement teknolojisi.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon">🎙️</div>
+        <h3>Anlatıcı Ses</h3>
+        <p>İşletmenize özel profesyonel voiceover. Türkçe ve İngilizce seçeneğiyle.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon">🎵</div>
+        <h3>Müzik Üretimi</h3>
+        <p>Gold planında işletmenize özel orijinal müzik. Telif hakkı tamamen size ait.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon">✍️</div>
+        <h3>Post Metni</h3>
+        <p>Instagram ve TikTok için hashtag optimizeli, etkileşim odaklı post açıklamaları.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-icon">📲</div>
+        <h3>Meta Otomatik Paylaşım</h3>
+        <p>Instagram ve Facebook'a zamanlanmış otomatik paylaşım. Yakında aktif olacak.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section">
+  <div class="cta-banner">
+    <h2>Bugün başlayın, farkı hissedin</h2>
+    <p>Ücretsiz planla kart bilgisi girmeden deneyin. İstediğiniz zaman yükseltin.</p>
+    <button class="btn-primary" style="font-size:15px;padding:15px 36px" onclick="window.location.href='/uye-ol'">Ücretsiz Üye Ol →</button>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="nav-logo-box" style="width:28px;height:28px;font-size:14px">📢</div>
+    <span class="nav-logo-text" style="font-size:15px">Esnaf<span>Ajan</span></span>
+  </div>
+  <div class="footer-links">
+    <a href="/sozlesme">Kullanım Sözleşmesi</a>
+    <a href="/gizlilik">Gizlilik Politikası</a>
+    <a href="mailto:tvarzmedya@gmail.com">İletişim</a>
+  </div>
+  <span class="footer-copy">© 2025 EsnafAjan · KOBİler için yapılmıştır</span>
+</footer>
+
+</body>
+</html>
